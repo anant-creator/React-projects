@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Items from './Items';
 import { formMethods } from './App';
+import {toast} from 'react-toastify';
 
 
 export default function MyForm() {
@@ -9,8 +10,7 @@ export default function MyForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
-    if (!newItemName) return
+    if (!newItemName) return toast.error('Empty Input Field');
     addItem(newItemName);
     setNewItemName('');
   }
